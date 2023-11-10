@@ -1,0 +1,78 @@
+repeat wait() until game:IsLoaded()
+--repeat wait() until game.Players.LocalPlayer:FindFirstChild("Character") or game.Players.LocalPlayer.Character:PlayerAdded("Humanoid")
+wait(3)
+
+
+if game.PlaceId == 13062495713 then 
+    local debounce = false
+   wait(4)
+         pcall(function()
+            local args = {
+                [1] = "Dungeon",
+                [2] = "Space Crusaders",
+                [3] = "hardcore"
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("LobbyService"):WaitForChild("RE"):WaitForChild("CreateLobby"):FireServer(unpack(args))
+            
+ wait(0.5)    
+ local args = {
+    [1] = "daazlzy288"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("LobbyService"):WaitForChild("RE"):WaitForChild("RefreshParty"):FireServer(unpack(args))
+wait(0.5)
+ game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("LobbyService"):WaitForChild("RE"):WaitForChild("StartDungeon"):FireServer()
+end)
+
+else
+
+getgenv().a = true -- x false  
+spawn(function()
+while task.wait() do 
+     if a== true then 
+         pcall(function()
+ for i,v in pairs(game:GetService("Workspace").IgnoreList.Enemies:GetChildren()) do 
+     if v:IsA("Model") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then 
+         game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = v:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,3)
+        
+     end 
+    end 
+end)
+     else
+        wait()
+        break 
+     end end end)
+
+     getgenv().c = true 
+     spawn(function()
+     while task.wait(0.1) do 
+          if c == true then 
+            pcall(function()
+            local args = {
+                [1] = 2
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("CombatService"):WaitForChild("RE"):WaitForChild("M1"):FireServer(unpack(args))
+        end)
+          else
+             wait()
+             break 
+          end end end)
+
+          getgenv().b = true  -- toggle return false
+          spawn(function()
+          while task.wait() do 
+               if b == true then 
+                pcall(function()
+          if game:GetService("Players").LocalPlayer.PlayerGui.HUB.Reward.Visible == true then 
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("GameService"):WaitForChild("RE"):WaitForChild("TeleportToLobby"):FireServer()
+          end
+        end)
+        else
+            wait()
+            break 
+         end end end)
+
+     
+        end
